@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-11T17:51:42.560967" rpa="false" schemaversion="5">
+<suite id="s1" name="Click" source="C:\QAx_Mobile\projects\yodapp-robot\tests\click.robot">
+<test id="s1-t1" name="Deve realizar um clique simples" line="10">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>http://localhost:4723</arg>
+<arg>platformName=Android</arg>
+<arg>deviceName=Android Emulator</arg>
+<arg>automationName=UiAutomator2</arg>
+<arg>app=${EXECDIR}/app/yodapp-beta.apk</arg>
+<arg>udid=emulator-5554</arg>
+<arg>autoGrantPermissions=true</arg>
+<doc>Opens a new application to the given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.19/guides/caps/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | No     | alias             |</doc>
+<status status="PASS" start="2026-04-11T17:51:42.762921" elapsed="8.298078"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>${START}</arg>
+<arg>5</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-04-11T17:51:51.061306" elapsed="5.254653"/>
+</kw>
+<kw name="Click Text" owner="AppiumLibrary">
+<msg time="2026-04-11T17:52:00.980213" level="INFO">xpath criteria: //*[contains(@text,"QAX")]</msg>
+<arg>${START}</arg>
+<doc>Clicks the text identified by ``text``.</doc>
+<status status="PASS" start="2026-04-11T17:51:56.316311" elapsed="4.663973"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-11T17:52:00.980742" level="INFO">${hamburguer} = xpath=//android.widget.ImageButton[@content-desc="Open navigation drawer"]</msg>
+<var>${hamburguer}</var>
+<arg>xpath=//android.widget.ImageButton[@content-desc="Open navigation drawer"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-11T17:52:00.980463" elapsed="0.000302"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2026-04-11T17:52:05.146687" level="INFO">xpath criteria: //android.widget.ImageButton[@content-desc="Open navigation drawer"]</msg>
+<arg>${hamburguer}</arg>
+<arg>5</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-11T17:52:00.980937" elapsed="4.165839"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-04-11T17:52:05.147597" level="INFO">Clicking element 'xpath=//android.widget.ImageButton[@content-desc="Open navigation drawer"]'.</msg>
+<msg time="2026-04-11T17:52:09.379505" level="INFO">xpath criteria: //android.widget.ImageButton[@content-desc="Open navigation drawer"]</msg>
+<arg>${hamburguer}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-11T17:52:05.146982" elapsed="4.232637"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-11T17:52:09.380592" level="INFO">${menu_item} = xpath=//*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="Clique em Botões"]</msg>
+<var>${menu_item}</var>
+<arg>xpath=//*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="Clique em Botões"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-11T17:52:09.379884" elapsed="0.000739"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<msg time="2026-04-11T17:52:13.556307" level="INFO">xpath criteria: //*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="Clique em Botões"]</msg>
+<arg>${menu_item}</arg>
+<arg>5</arg>
+<doc>Waits until the element specified by the ``locator`` is visible.</doc>
+<status status="PASS" start="2026-04-11T17:52:09.380815" elapsed="4.175576"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2026-04-11T17:52:13.557385" level="INFO">Clicking element 'xpath=//*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="Clique em Botões"]'.</msg>
+<msg time="2026-04-11T17:52:18.729358" level="INFO">xpath criteria: //*[@resource-id="com.qaxperience.yodapp:id/navView"]//*[@text="Clique em Botões"]</msg>
+<arg>${menu_item}</arg>
+<doc>Clicks the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-11T17:52:13.556686" elapsed="5.172754"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Clique simples</arg>
+<arg>5</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-04-11T17:52:18.730077" elapsed="2.092275"/>
+</kw>
+<kw name="Click Text" owner="AppiumLibrary">
+<msg time="2026-04-11T17:52:26.221317" level="INFO">xpath criteria: //*[contains(@text,"Clique simples")]</msg>
+<arg>Clique simples</arg>
+<doc>Clicks the text identified by ``text``.</doc>
+<status status="PASS" start="2026-04-11T17:52:20.822620" elapsed="5.398781"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="AppiumLibrary">
+<arg>Botão clique simples</arg>
+<doc>Waits until the ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-04-11T17:52:26.221676" elapsed="2.050459"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-11T17:52:33.273148" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-11T17:52:28.272421" elapsed="5.000813"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and the webdriver session.</doc>
+<status status="PASS" start="2026-04-11T17:52:33.273431" elapsed="2.853584"/>
+</kw>
+<status status="PASS" start="2026-04-11T17:51:42.762234" elapsed="53.364993"/>
+</test>
+<status status="PASS" start="2026-04-11T17:51:42.562361" elapsed="53.565352"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Click" id="s1" pass="1" fail="0" skip="0">Click</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
