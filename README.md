@@ -1,8 +1,8 @@
-# Projeto de Automação (Em Desenvolvimento)
+# Projeto Avançado de Automação Mobile (Em Desenvolvimento)
 
-Bem-vindo(a) ao repositório deste projeto de automação!
+Bem-vindo(a) ao repositório deste projeto avançado de automação mobile!
 
-Gostaria de destacar que todo o conteúdo desenvolvido aqui faz parte prática de um curso focado em automação de testes mobile utilizando Robot Framework com Appium que estou realizando atualmente.
+Gostaria de destacar que todo o conteúdo desenvolvido aqui faz parte prática de um curso avançado focado em automação de testes mobile utilizando Robot Framework com Appium que estou realizando atualmente.
 
 **Status do Projeto:** 🚧 Em desenvolvimento / Ainda não finalizado
 
