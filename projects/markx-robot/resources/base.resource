@@ -3,6 +3,7 @@ Documentation            Tudo deve começar neste arquivo
 
 Library          AppiumLibrary
 Resource         screens/login.resource
+Resource         screens/tasks.resource
 Resource         dialogs.resource
 
 *** Keywords ***
@@ -23,7 +24,6 @@ Start session
 Finish session
     Capture Page Screenshot
     Close Application
-
 
 
 
