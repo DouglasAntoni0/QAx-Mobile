@@ -30,6 +30,7 @@ O objetivo de manter este repositório público é documentar minha jornada de a
 - **Python:** Linguagem base da stack e em que as bibliotecas do Robot rodam.
 - **UiAutomator2:** Driver oficial do Appium para testes nativos no Android.
 - **Node.js (API Locais):** Utilizado em alguns projetos (como o MarkX) para simular o back-end via APIs locais para consumo e preparação da massa de dados dos testes.
+- **MongoDB & PyMongo:** Utilizados para interação direta com o banco de dados (NoSQL) a fim de preparar e limpar a massa de dados nos testes (como o reset de tarefas no App MarkX).
 
 ---
 
@@ -38,7 +39,7 @@ O objetivo de manter este repositório público é documentar minha jornada de a
 O repositório está subdividido para acompanhar de forma modular o andamento dos estudos, localizados em `projects/`:
 
 - 📂 **`projects/yodapp-robot`**: Automações direcionadas ao app *Yodapp*. Aqui concentram-se interações elementares e avançadas com a interface (Swipes, Radio Buttons, Checkboxes, Long Clicks, etc).
-- 📂 **`projects/markx-robot`**: Testes focados no *MarkX*, abrangendo jornadas maiores como criação de contas, testes de login, fluxos paralelos e também o consumo de API (Mock/Back-end).
+- 📂 **`projects/markx-robot`**: Testes focados no *MarkX*, abrangendo jornadas maiores como testes de login e o **fluxo completo de gestão de tarefas (Cadastro, Exclusão e Conclusão de tarefas)**. Inclui também consumo de API (Node.js) e manipulação direta do banco de dados **MongoDB** (via PyMongo) para controle da massa de dados.
 - 📂 **`projects/appim-qax`**: Introdução, projetos de fixação ou experimentos separados do curso.
 
 *(A arquitetura interna dentro de cada projeto de automação busca dividir as responsabilidades em diretórios como `tests/` para as suítes, `resources/` para keywords/variáveis, `apps/` para os artefatos `apk` e `logs/` para exportação de evidências)*

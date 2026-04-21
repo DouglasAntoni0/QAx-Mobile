@@ -17,3 +17,26 @@ Create a new task
     Click Element   ${create_button}
 
     
+Should have task
+    [Arguments]    ${task_name}
+
+    Wait Until Element Is Visible
+    ...    xpath=//*[@resource-id="taskText"][@text="${task_name}"]
+
+Remove task by name
+    [Arguments]    ${task_name}
+    Click Element    xpath=//*[@text="${task_name}"]/../..//*[@resource-id="removeTask"]
+
+    ${button}    Set Variable    xpath=//android.widget.Button[@text="SIM"]
+    Wait Until Element Is Visible    ${button}    5s
+    Click Element    ${button}
+
+
+Finish task
+    [Arguments]    ${task_name}
+    Click Element    xpath=//*[@text="${task_name}"]/..
+
+Task should be done
+    [Arguments]    ${task_name}
+    Wait Until Element Is Visible    xpath=//*[@text="${task_name}"]/..//android.widget.ImageView
+
