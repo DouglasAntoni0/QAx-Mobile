@@ -1,34 +1,35 @@
-name: Yodapp CI
+name: Yodapp CI Raiz 🤖
 
 on:
   push:
-    branches: [ "main", "master" ]
-  pull_request:
-    branches: [ "main", "master" ]
+    branches: [ "main" ]
 
 jobs:
-  test:
-    runs-on: macos-latest
+  testar-no-emulador:
+    # AQUI ESTÁ A SALVAÇÃO: macos-13 é o Mac com processador Intel!
+    runs-on: macos-13 
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: 🛎️ Clonar o código
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18
+      - name: 🟢 Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
-    - name: Install dependencies
-      working-directory: ./projects-javascript/yodapp-robot
-      run: npm install
-
-    - name: Run tests on Android Emulator
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-        api-level: 29
-        target: google_apis
-        arch: arm64-v8a
-        disable-animations: true
-        script: npm run test
+      - name: 📦 Instalar dependências do Yodapp
         working-directory: ./projects-javascript/yodapp-robot
+        run: npm install
+
+      - name: 📱 Subir Emulador e Rodar Testes
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          # Voltamos pro x86_64 (Intel), que funciona no macos-13
+          arch: x86_64
+          target: default
+          profile: Nexus 6
+          disable-animations: true
+          working-directory: ./projects-javascript/yodapp-robot
+          script: npm run test
