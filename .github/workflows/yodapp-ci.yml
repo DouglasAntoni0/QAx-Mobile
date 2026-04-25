@@ -1,0 +1,34 @@
+name: Yodapp CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      working-directory: ./projects-javascript/yodapp-robot
+      run: npm install
+
+    - name: Run tests on Android Emulator
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 29
+        target: default
+        arch: x86_64
+        profile: Nexus 6
+        script: npm run test
+        working-directory: ./projects-javascript/yodapp-robot
