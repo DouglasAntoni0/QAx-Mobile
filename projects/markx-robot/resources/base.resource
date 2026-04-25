@@ -26,9 +26,3 @@ Finish session
     Capture Page Screenshot
     Close Application
 
-
-
-
-
-
-

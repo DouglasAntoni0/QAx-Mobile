@@ -27,4 +27,3 @@ Deve poder remover o Darth Vader
 
     Close session
 
-    

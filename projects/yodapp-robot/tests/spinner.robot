@@ -9,7 +9,7 @@ Deve escolher o nivel Padawan
     Get started
     Navigate to    Formulários
     Go to item     Cadastro  Crie sua conta.
-    
+
     Select Level    Padawan
 
     Close session
@@ -20,7 +20,7 @@ Deve escolher o nivel Jedi
     Get started
     Navigate to    Formulários
     Go to item     Cadastro  Crie sua conta.
-    
+
     Select Level    Jedi
 
     Close session
@@ -31,7 +31,7 @@ Deve escolher o nivel Sith
     Get started
     Navigate to    Formulários
     Go to item     Cadastro  Crie sua conta.
-    
+
     Select Level    Sith
 
     Close session
@@ -42,12 +42,10 @@ Deve escolher o nivel Outros
     Get started
     Navigate to    Formulários
     Go to item     Cadastro  Crie sua conta.
-    
+
     Select Level    Outros
 
     Close session
-
-
 
 *** Keywords ***
 Select Level
@@ -56,5 +54,4 @@ Select Level
     Click Element    id=com.qaxperience.yodapp:id/spinnerJob
     Wait Until Element Is Visible    class=android.widget.ListView
     Click Text     ${level}
-
 

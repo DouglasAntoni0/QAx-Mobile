@@ -8,8 +8,8 @@ ${START}        QAX
 *** Keywords ***
 Start session
 
-    Open Application    http://localhost:4723    
-    ...    platformName=Android    
+    Open Application    http://localhost:4723
+    ...    platformName=Android
     ...    deviceName=Android Emulator
     ...    automationName=UiAutomator2
     ...    app=${EXECDIR}/app/yodapp-beta.apk
@@ -19,8 +19,8 @@ Start session
 Get started
     Wait Until Page Contains    ${START}  5
     Click Text                  ${START}
-    
-Navigate to 
+
+Navigate to
     [Arguments]    ${item_text}
     ${hamburguer}=    Set Variable    xpath=//android.widget.ImageButton[@content-desc="Open navigation drawer"]
 
@@ -31,12 +31,12 @@ Navigate to
 
     Wait Until Element Is Visible    ${menu_item}  5
     Click Element                    ${menu_item}
-    
-Go to item 
+
+Go to item
     [Arguments]       ${item}    ${checkpoint}
     Wait Until Page Contains    ${item}    5
     Click Text                  ${item}
     Wait Until Page Contains    ${checkpoint}
-    
+
 Close session
     Close Application

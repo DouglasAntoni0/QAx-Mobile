@@ -1,6 +1,6 @@
 # Projeto Avançado de Automação Mobile (Em Desenvolvimento) 📱🤖
 
-Bem-vindo(a) ao repositório deste **projeto avançado de automação mobile!** 
+Bem-vindo(a) ao repositório deste **projeto avançado de automação mobile!**
 
 Gostaria de destacar que todo o conteúdo desenvolvido aqui faz parte prática de um curso avançado focado em automação de testes mobile utilizando **Robot Framework** com **Appium** que estou realizando atualmente.
 
@@ -53,7 +53,7 @@ O repositório está subdividido para acompanhar de forma modular o andamento do
 Para explorar ou rodar este projeto, construa o ambiente instalando:
 
 1. **Python 3.x** e pip.
-2. O framework e sua library Appium: 
+2. O framework e sua library Appium:
    ```bash
    pip install robotframework robotframework-appiumlibrary
    ```

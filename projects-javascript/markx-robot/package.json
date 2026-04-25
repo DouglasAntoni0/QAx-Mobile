@@ -1,0 +1,16 @@
+{
+  "name": "markx-webdriverio",
+  "version": "1.0.0",
+  "description": "Port of markx-robot to WebdriverIO",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio run wdio.conf.js"
+  },
+  "devDependencies": {
+    "@wdio/cli": "^8.36.1",
+    "@wdio/local-runner": "^8.36.1",
+    "@wdio/mocha-framework": "^8.36.1",
+    "@wdio/spec-reporter": "^8.36.1",
+    "mongodb": "^6.5.0"
+  }
+}

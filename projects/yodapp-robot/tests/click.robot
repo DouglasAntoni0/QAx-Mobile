@@ -27,7 +27,7 @@ Deve realizar um clique longo
     Go to item     Clique longo   Botão clique longo
 
     ${locator}     Set Variable   id=com.qaxperience.yodapp:id/long_click
-    
+
     ${positions}  Get Element Location    ${locator}
 
     ${finger}     Create List    ${positions}[x]    ${positions}[y]
