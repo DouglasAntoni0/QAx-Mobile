@@ -27,8 +27,8 @@ jobs:
       uses: reactivecircus/android-emulator-runner@v2
       with:
         api-level: 29
-        target: default
-        arch: x86_64
-        profile: Nexus 6
+        target: google_apis
+        arch: arm64-v8a
+        disable-animations: true
         script: npm run test
         working-directory: ./projects-javascript/yodapp-robot
