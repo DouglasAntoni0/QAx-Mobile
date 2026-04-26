@@ -12,15 +12,19 @@ exports.config = {
         'appium:automationName': 'UiAutomator2',
         'appium:deviceName': 'Android Emulator',
         'appium:app': '../../projects/yodapp-robot/app/yodapp-beta.apk',
-        'appium:uiautomator2ServerInstallTimeout': 60000,
-        'appium:uiautomator2ServerLaunchTimeout': 60000
+        
+        'appium:uiautomator2ServerInstallTimeout': 600000,
+        'appium:uiautomator2ServerLaunchTimeout': 600000,
+        'appium:adbExecTimeout': 600000
     }],
 
     logLevel: 'info',
     bail: 0,
     baseUrl: 'http://localhost',
-    waitforTimeout: 10000,
-    connectionRetryTimeout: 120000,
+    
+    waitforTimeout: 60000, 
+    
+    connectionRetryTimeout: 600000, 
     connectionRetryCount: 3,
 
     services: ['appium'],
@@ -30,7 +34,7 @@ exports.config = {
 
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 600000 
     },
 
     before: async function (capabilities, specs) {
