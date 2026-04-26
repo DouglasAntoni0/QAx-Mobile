@@ -11,7 +11,7 @@ exports.config = {
         platformName: 'Android',
         'appium:automationName': 'UiAutomator2',
         'appium:deviceName': 'Android Emulator',
-        'appium:app': './app/yodapp-beta.apk'
+        'appium:app': '../../projects/yodapp-robot/app/yodapp-beta.apk'
     }],
 
     logLevel: 'info',
