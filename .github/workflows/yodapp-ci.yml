@@ -7,7 +7,7 @@ on:
 jobs:
   testar-no-emulador:
     # AQUI ESTÁ A SALVAÇÃO: macos-13 é o Mac com processador Intel!
-    runs-on: macos-13 
+    runs-on: ubuntu-latest 
 
     steps:
       - name: 🛎️ Clonar o código
