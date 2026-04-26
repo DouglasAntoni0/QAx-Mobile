@@ -11,7 +11,9 @@ exports.config = {
         platformName: 'Android',
         'appium:automationName': 'UiAutomator2',
         'appium:deviceName': 'Android Emulator',
-        'appium:app': '../../projects/yodapp-robot/app/yodapp-beta.apk'
+        'appium:app': '../../projects/yodapp-robot/app/yodapp-beta.apk',
+        'appium:uiautomator2ServerInstallTimeout': 60000,
+        'appium:uiautomator2ServerLaunchTimeout': 60000
     }],
 
     logLevel: 'info',
