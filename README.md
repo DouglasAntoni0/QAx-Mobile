@@ -18,7 +18,7 @@ Mais do que uma coleção de testes, este projeto mostra a forma como eu estrutu
 
 ## Visão geral
 
-O `QAx_Mobile` concentra diferentes trilhas de estudo, prática e evolução em automação mobile. A base principal está em **Robot Framework + Appium**, mas o repositório também registra uma transição importante para **JavaScript + WebdriverIO**, reaproveitando os mesmos cenários de negócio em outra stack para consolidar domínio técnico e versatilidade de implementação.
+O `QAx-Mobile` concentra diferentes trilhas de estudo, prática e evolução em automação mobile. A base principal está em **Robot Framework + Appium**, mas o repositório também registra uma transição importante para **JavaScript + WebdriverIO**, reaproveitando os mesmos cenários de negócio em outra stack para consolidar domínio técnico e versatilidade de implementação.
 
 Na prática, este repositório cobre:
 
@@ -58,11 +58,10 @@ Em outras palavras: este repositório mostra uma automação que vai além da ex
 ## Estrutura do repositório
 
 ```text
-QAx_Mobile/
+QAx-Mobile/
 ├── .github/
 │   └── workflows/
 │       └── yodapp-ci.yml
-├── apps/
 ├── projects/
 │   ├── appim-qax/
 │   ├── markx-robot/
@@ -70,8 +69,6 @@ QAx_Mobile/
 ├── projects-javascript/
 │   ├── markx-robot/
 │   └── yodapp-robot/
-├── results/
-├── Temp/
 └── README.md
 ```
 
@@ -105,7 +102,7 @@ O módulo `projects/yodapp-robot` concentra automações voltadas ao app **Yodap
 
 #### Destaques técnicos
 
-- centralização da sessão Appium em `resources/base.resource`;
+- centralização da sessão Appium em `projects/yodapp-robot/resources/base.resource`;
 - reutilização de keywords como `Start session`, `Get started`, `Navigate to` e `Go to item`;
 - uso de localizadores por `id`, `xpath` e texto;
 - manipulação de coordenadas para swipe;
@@ -163,7 +160,7 @@ O módulo `projects-javascript/yodapp-robot` representa a migração dos cenári
 #### O que existe aqui
 
 - reescrita dos cenários de home, login, clique, checkbox, radio, spinner e swipe;
-- abstração de navegação e acesso aos fluxos em `resources/base.resource.js`;
+- abstração de navegação e acesso aos fluxos em `projects-javascript/yodapp-robot/resources/base.resource.js`;
 - execução via `wdio.conf.js`;
 - suporte ao serviço do Appium pelo WebdriverIO.
 
@@ -189,7 +186,7 @@ Esse trecho do repositório reforça uma qualidade importante: consistência. Os
 
 ### 5. Appim QAX
 
-O módulo `projects/appim-qax` funciona como área experimental de apoio. Hoje ele mantém uma estrutura mínima com `package.json` e um APK (`qax-alpha.apk`), servindo como espaço de exploração, testes isolados e evolução futura.
+O módulo `projects/appim-qax` funciona como área experimental de apoio. Hoje ele mantém uma estrutura mínima com `package.json` e um APK (`projects/appim-qax/qax-alpha.apk`), servindo como espaço de exploração, testes isolados e evolução futura.
 
 Mesmo sendo a parte mais enxuta do repositório, ele ajuda a mostrar que a base não foi construída de forma estática. Existe espaço de laboratório, tentativa, aprendizado e expansão contínua.
 
@@ -269,7 +266,7 @@ cd projects/yodapp-robot
 robot -d ./logs tests/
 ```
 
-Esse módulo usa o APK `app/yodapp-beta.apk` e a sessão Appium apontada para `http://localhost:4723`.
+Esse módulo usa o APK `projects/yodapp-robot/app/yodapp-beta.apk` e a sessão Appium apontada para `http://localhost:4723`.
 
 ### Executando o MarkX com Robot Framework
 
