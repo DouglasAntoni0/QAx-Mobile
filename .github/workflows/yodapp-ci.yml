@@ -45,15 +45,7 @@ jobs:
           target: google_apis
           disable-animations: true
           working-directory: ./projects-javascript/yodapp-robot
-          script: >-
-            npm run test || (
-              mkdir -p ci-artifacts;
-              adb -s emulator-5554 exec-out screencap -p > ci-artifacts/failure.png || true;
-              adb -s emulator-5554 shell uiautomator dump /sdcard/window.xml || true;
-              adb -s emulator-5554 pull /sdcard/window.xml ci-artifacts/window.xml || true;
-              adb -s emulator-5554 logcat -d > ci-artifacts/logcat.txt || true;
-              exit 1
-            )
+          script: npm run test || ( mkdir -p ci-artifacts; adb -s emulator-5554 exec-out screencap -p > ci-artifacts/failure.png || true; adb -s emulator-5554 shell uiautomator dump /sdcard/window.xml || true; adb -s emulator-5554 pull /sdcard/window.xml ci-artifacts/window.xml || true; adb -s emulator-5554 logcat -d > ci-artifacts/logcat.txt || true; exit 1 )
 
       - name: 📎 Publicar diagnósticos Android
         if: failure()
