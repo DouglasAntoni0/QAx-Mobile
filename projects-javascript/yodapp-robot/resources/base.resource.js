@@ -1,8 +1,34 @@
+const APP_READY_TIMEOUT = 60000;
+
 class BaseResource {
     async getStarted() {
-        const startText = await $(`android=new UiSelector().text("QAX")`);
-        await startText.waitForDisplayed({ timeout: 15000 });
-        await startText.click();
+        const startSelector = 'android=new UiSelector().text("QAX")';
+        const homeSelector = 'android=new UiSelector().text("Yodapp")';
+
+        await driver.waitUntil(
+            async () => {
+                const startText = await $(startSelector);
+                const homeTitle = await $(homeSelector);
+
+                return (await startText.isDisplayed()) || (await homeTitle.isDisplayed());
+            },
+            {
+                timeout: APP_READY_TIMEOUT,
+                interval: 500,
+                timeoutMsg: 'A tela inicial do Yodapp não ficou disponível em 60 segundos.'
+            }
+        );
+
+        const startText = await $(startSelector);
+        if (await startText.isDisplayed()) {
+            await startText.click();
+        }
+
+        const homeTitle = await $(homeSelector);
+        await homeTitle.waitForDisplayed({
+            timeout: APP_READY_TIMEOUT,
+            timeoutMsg: 'A tela principal do Yodapp não ficou disponível em 60 segundos.'
+        });
     }
 
     async navigateTo(itemText) {

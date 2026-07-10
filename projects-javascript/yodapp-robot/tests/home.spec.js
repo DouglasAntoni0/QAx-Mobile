@@ -2,6 +2,8 @@ const base = require('../resources/base.resource');
 
 describe('Home', () => {
     it('Deve abrir a tela principal', async () => {
+        await base.getStarted();
+
         const yodappText = await $(`android=new UiSelector().text("Yodapp")`);
         await yodappText.waitForDisplayed({ timeout: 5000 });
 
