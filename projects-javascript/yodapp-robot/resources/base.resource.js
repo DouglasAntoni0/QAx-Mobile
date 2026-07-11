@@ -2,15 +2,15 @@ const APP_READY_TIMEOUT = 60000;
 
 class BaseResource {
     async getStarted() {
-        const startSelector = 'android=new UiSelector().text("QAX")';
-        const homeSelector = 'android=new UiSelector().text("Yodapp")';
+        const startSelector = 'android=new UiSelector().text("Get started")';
+        const homeSelector = '//android.widget.ImageButton[@content-desc="Open navigation drawer"]';
 
         await driver.waitUntil(
             async () => {
-                const startText = await $(startSelector);
-                const homeTitle = await $(homeSelector);
+                const startButton = await $(startSelector);
+                const homeMenu = await $(homeSelector);
 
-                return (await startText.isDisplayed()) || (await homeTitle.isDisplayed());
+                return (await startButton.isDisplayed()) || (await homeMenu.isDisplayed());
             },
             {
                 timeout: APP_READY_TIMEOUT,
@@ -19,13 +19,13 @@ class BaseResource {
             }
         );
 
-        const startText = await $(startSelector);
-        if (await startText.isDisplayed()) {
-            await startText.click();
+        const startButton = await $(startSelector);
+        if (await startButton.isDisplayed()) {
+            await startButton.click();
         }
 
-        const homeTitle = await $(homeSelector);
-        await homeTitle.waitForDisplayed({
+        const homeMenu = await $(homeSelector);
+        await homeMenu.waitForDisplayed({
             timeout: APP_READY_TIMEOUT,
             timeoutMsg: 'A tela principal do Yodapp não ficou disponível em 60 segundos.'
         });
