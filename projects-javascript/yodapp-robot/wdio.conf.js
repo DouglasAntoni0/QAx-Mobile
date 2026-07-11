@@ -1,3 +1,6 @@
+const fs = require('node:fs/promises');
+const path = require('node:path');
+
 exports.config = {
     runner: 'local',
 
@@ -45,6 +48,19 @@ exports.config = {
     },
 
     afterTest: async function (test, context, { error, result, duration, passed, retries }) {
+        if (!passed) {
+            const artifactDirectory = path.resolve('ci-artifacts');
+            const artifactName = Date.now() + '-' + test.title.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+
+            await fs.mkdir(artifactDirectory, { recursive: true });
+            await driver.saveScreenshot(path.join(artifactDirectory, artifactName + '.png'));
+            await fs.writeFile(
+                path.join(artifactDirectory, artifactName + '.xml'),
+                await driver.getPageSource(),
+                'utf8'
+            );
+        }
+
         await driver.terminateApp('com.qaxperience.yodapp');
     }
 }
