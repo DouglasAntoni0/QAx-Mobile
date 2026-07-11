@@ -15,8 +15,8 @@ describe('Login', () => {
         const btnSubmit = await $('id=com.qaxperience.yodapp:id/btnSubmit');
         await btnSubmit.click();
 
-        const successMessage = await $(`android=new UiSelector().text("Boas vindas, logado você está.")`);
-        await successMessage.waitForDisplayed({ timeout: 5000 });
+        const successMessage = await $(`//android.widget.Toast[@text="Boas vindas, logado você está."]`);
+        await successMessage.waitForExist({ timeout: 5000 });
     });
 
     it('Não deve logar com senha incorreta', async () => {
@@ -33,7 +33,7 @@ describe('Login', () => {
         const btnSubmit = await $('id=com.qaxperience.yodapp:id/btnSubmit');
         await btnSubmit.click();
 
-        const errorMessage = await $(`android=new UiSelector().text("Oops! Credenciais incorretas.")`);
-        await errorMessage.waitForDisplayed({ timeout: 5000 });
+        const errorMessage = await $(`//android.widget.Toast[@text="Oops! Credenciais incorretas."]`);
+        await errorMessage.waitForExist({ timeout: 5000 });
     });
 });

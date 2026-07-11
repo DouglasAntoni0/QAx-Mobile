@@ -5,10 +5,9 @@ describe('Spinner', () => {
         const spinner = await $('id=com.qaxperience.yodapp:id/spinnerJob');
         await spinner.click();
 
-        const listView = await $('class=android.widget.ListView');
-        await listView.waitForDisplayed({ timeout: 5000 });
 
         const levelElement = await $(`android=new UiSelector().text("${level}")`);
+        await levelElement.waitForDisplayed({ timeout: 5000 });
         await levelElement.click();
     }
 

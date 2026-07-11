@@ -9,6 +9,8 @@ on:
 jobs:
   testar-no-emulador:
     runs-on: ubuntu-latest
+    env:
+      APPIUM_HOME: ${{ github.workspace }}/.appium
 
     steps:
       - name: 🛎️ Clonar o código
@@ -19,15 +21,21 @@ jobs:
         with:
           node-version: '20'
 
+      - name: ⚡ Habilitar aceleração KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
       - name: 📦 Instalar dependências do Yodapp
         working-directory: ./projects-javascript/yodapp-robot
-        run: npm install
+        run: npm ci
 
-      - name: ⚙️ Instalar Appium e Driver Android
+      - name: ⚙️ Configurar o driver Android do Appium
         working-directory: ./projects-javascript/yodapp-robot
         run: |
-          npm install --save-dev appium
-          npx appium driver install uiautomator2
+          mkdir -p "$APPIUM_HOME"
+          npx appium driver install uiautomator2@8.1.0
 
       - name: 📱 Subir Emulador e Rodar Testes
         uses: reactivecircus/android-emulator-runner@v2
@@ -37,4 +45,12 @@ jobs:
           target: google_apis
           disable-animations: true
           working-directory: ./projects-javascript/yodapp-robot
-          script: npm run test
+          script: npm run test || ( mkdir -p ci-artifacts; adb -s emulator-5554 exec-out screencap -p > ci-artifacts/failure.png || true; adb -s emulator-5554 shell uiautomator dump /sdcard/window.xml || true; adb -s emulator-5554 pull /sdcard/window.xml ci-artifacts/window.xml || true; adb -s emulator-5554 logcat -d > ci-artifacts/logcat.txt || true; exit 1 )
+
+      - name: 📎 Publicar diagnósticos Android
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yodapp-android-diagnostics
+          path: projects-javascript/yodapp-robot/ci-artifacts
+          if-no-files-found: ignore

@@ -1,8 +1,34 @@
+const APP_READY_TIMEOUT = 60000;
+
 class BaseResource {
     async getStarted() {
-        const startText = await $(`android=new UiSelector().text("QAX")`);
-        await startText.waitForDisplayed({ timeout: 15000 });
-        await startText.click();
+        const startSelector = '//*[@resource-id="com.qaxperience.yodapp:id/mi_button_cta"]//android.widget.Button';
+        const homeSelector = '//android.widget.ImageButton[@content-desc="Open navigation drawer"]';
+
+        await driver.waitUntil(
+            async () => {
+                const startButton = await $(startSelector);
+                const homeMenu = await $(homeSelector);
+
+                return (await startButton.isDisplayed()) || (await homeMenu.isDisplayed());
+            },
+            {
+                timeout: APP_READY_TIMEOUT,
+                interval: 500,
+                timeoutMsg: 'A tela inicial do Yodapp não ficou disponível em 60 segundos.'
+            }
+        );
+
+        const startButton = await $(startSelector);
+        if (await startButton.isDisplayed()) {
+            await startButton.click();
+        }
+
+        const homeMenu = await $(homeSelector);
+        await homeMenu.waitForDisplayed({
+            timeout: APP_READY_TIMEOUT,
+            timeoutMsg: 'A tela principal do Yodapp não ficou disponível em 60 segundos.'
+        });
     }
 
     async navigateTo(itemText) {
