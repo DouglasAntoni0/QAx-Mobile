@@ -2,7 +2,7 @@ const APP_READY_TIMEOUT = 60000;
 
 class BaseResource {
     async getStarted() {
-        const startSelector = 'android=new UiSelector().text("Get started")';
+        const startSelector = '//*[@resource-id="com.qaxperience.yodapp:id/mi_button_cta"]//android.widget.Button';
         const homeSelector = '//android.widget.ImageButton[@content-desc="Open navigation drawer"]';
 
         await driver.waitUntil(
