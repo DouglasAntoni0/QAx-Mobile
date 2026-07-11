@@ -4,13 +4,13 @@ describe('Home', () => {
     it('Deve abrir a tela principal', async () => {
         await base.getStarted();
 
-        const yodappText = await $(`android=new UiSelector().text("Yodapp")`);
-        await yodappText.waitForDisplayed({ timeout: 5000 });
+        const navigationDrawer = await $('//android.widget.ImageButton[@content-desc="Open navigation drawer"]');
+        await navigationDrawer.waitForDisplayed({ timeout: 5000 });
 
-        const subtitleText = await $(`android=new UiSelector().text("Mobile Training")`);
-        await subtitleText.waitForDisplayed({ timeout: 5000 });
+        const toolbarTitle = await $('id=com.qaxperience.yodapp:id/toolbarTitle');
+        await toolbarTitle.waitForDisplayed({ timeout: 5000 });
 
-        const authorText = await $(`android=new UiSelector().text("by Papito")`);
-        await authorText.waitForDisplayed({ timeout: 5000 });
+        const simpleClickItem = await $(`android=new UiSelector().text("Clique simples")`);
+        await simpleClickItem.waitForDisplayed({ timeout: 5000 });
     });
 });

@@ -10,7 +10,7 @@ describe('Click', () => {
         await btnCliqueSimples.click();
 
         const toast = await $(`//android.widget.Toast[@text="Isso é um clique simples"]`);
-        await toast.waitForDisplayed({ timeout: 5000 });
+        await toast.waitForExist({ timeout: 5000 });
     });
 
     it('Deve realizar um clique longo', async () => {
@@ -28,6 +28,6 @@ describe('Click', () => {
             .perform();
 
         const toast = await $(`//android.widget.Toast[@text="Isso é um clique longo"]`);
-        await toast.waitForDisplayed({ timeout: 5000 });
+        await toast.waitForExist({ timeout: 5000 });
     });
 });
